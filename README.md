@@ -72,7 +72,7 @@ Then open [http://127.0.0.1:8050](http://127.0.0.1:8050) in your browser.
 
 ---
 
-## 📊 Demo
+## 📸 Demo
 
 ![alt text](image.png)
 

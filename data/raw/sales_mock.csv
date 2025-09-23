@@ -1,0 +1,10 @@
+date,state,category,sales
+2024-01-01,NSW,Food,1200
+2024-01-01,NSW,Clothing,800
+2024-01-01,QLD,Food,600
+2024-01-01,QLD,Clothing,400
+2024-02-01,NSW,Food,1500
+2024-02-01,NSW,Clothing,900
+2024-02-01,QLD,Food,700
+2024-02-01,QLD,Clothing,500
+2024-03-01,NSW,Food,1800

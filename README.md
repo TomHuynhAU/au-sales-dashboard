@@ -20,15 +20,29 @@ This project is designed as a professional portfolio piece, showcasing clean arc
 ## 📂 Repository Structure
 
 ```
+## 📂 Repository Structure
 au-sales-dashboard/
-├─ src/              # app source code
-│  ├─ app.py
-│  ├─ data/          # data loaders & transforms
-│  └─ ui/            # layout & callbacks
-├─ data/raw/         # raw datasets (CSV)
-├─ tests/            # unit tests
-├─ requirements.txt
-└─ README.md
+├─ src/                   # app source code
+│  ├─ app.py              # main Dash entrypoint
+│  ├─ config.py           # configuration (paths, constants)
+│  ├─ logging_conf.py     # logging setup
+│  ├─ data/               # data loaders & transforms
+│  │   ├─ loaders.py
+│  │   └─ transforms.py
+│  └─ ui/                 # layout & callbacks
+│      ├─ layout.py
+│      ├─ callbacks.py
+│      └─ __init__.py
+├─ data/                  # raw datasets (CSV / ABS XLSX)
+│  └─ raw/                # (place your data files here)
+├─ tests/                 # unit tests
+│  └─ test_loaders.py
+├─ requirements.txt       # Python dependencies
+├─ pytest.ini             # pytest configuration
+├─ .gitignore             # ignore venv, __pycache__, etc.
+├─ LICENSE
+└─ README.md              # project overview & usage
+
 ```
 
 ---

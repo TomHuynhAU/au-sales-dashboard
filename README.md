@@ -20,7 +20,6 @@ This project is designed as a professional portfolio piece, showcasing clean arc
 ## 📂 Repository Structure
 
 ```
-## 📂 Repository Structure
 au-sales-dashboard/
 ├─ src/                   # app source code
 │  ├─ app.py              # main Dash entrypoint

@@ -22,7 +22,10 @@ def create_app(csv_path: str | None = None) -> Dash:
     register_callbacks(app, df)
     return app
 
+
+app = create_app()
+server = app.server
+
 if __name__ == "__main__":
-    app = create_app()
     logger.info("Running on http://127.0.0.1:8050")
     app.run_server(debug=True, host="0.0.0.0", port=8050)

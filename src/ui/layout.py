@@ -4,36 +4,98 @@ import pandas as pd
 def serve_layout(states, categories, min_date: pd.Timestamp, max_date: pd.Timestamp):
     return html.Div(
         [
-            html.H2("AU Sales Dashboard"),
-            html.Div(
+            # Header
+            html.Header(
                 [
                     html.Div(
-                        [html.Label("States"),
-                         dcc.Dropdown([{"label": s, "value": s} for s in states],
-                                      multi=True, id="state-dd")],
-                        style={"width": "30%", "display": "inline-block", "marginRight": "1rem"},
+                        [
+                            html.H1("AU Sales Dashboard", className="title"),
+                            html.P("Realtime insights across states · categories · time", className="subtitle"),
+                        ],
+                        className="title-wrap",
                     ),
                     html.Div(
-                        [html.Label("Categories"),
-                         dcc.Dropdown([{"label": c, "value": c} for c in categories],
-                                      multi=True, id="cat-dd")],
-                        style={"width": "30%", "display": "inline-block", "marginRight": "1rem"},
-                    ),
-                    html.Div(
-                        [html.Label("Date Range"),
-                         dcc.DatePickerRange(id="date-range", start_date=min_date, end_date=max_date)],
-                        style={"display": "inline-block"},
+                        [
+                            html.A("Reset filters", id="reset-filters", className="btn btn-ghost", href="#"),
+                        ],
+                        className="header-actions",
                     ),
                 ],
-                style={"marginBottom": "1rem"},
+                className="app-header glass",
             ),
-            # KPI
-            html.Div(id="kpi-cards", style={"display": "flex", "gap": "16px", "marginBottom": "16px"}),
-            # Charts + table
-            dcc.Graph(id="sales-line"),
-            dcc.Graph(id="sales-bar"),
-            html.H4("Latest Top Categories by Sales"),
-            html.Div(id="top-table"),
+
+            # Controls
+            html.Section(
+                [
+                    html.Div(
+                        [
+                            html.Label("States", className="label"),
+                            dcc.Dropdown(
+                                [{"label": s, "value": s} for s in states],
+                                multi=True, id="state-dd", className="dd"
+                            ),
+                        ],
+                        className="control",
+                    ),
+                    html.Div(
+                        [
+                            html.Label("Categories", className="label"),
+                            dcc.Dropdown(
+                                [{"label": c, "value": c} for c in categories],
+                                multi=True, id="cat-dd", className="dd"
+                            ),
+                        ],
+                        className="control",
+                    ),
+                    html.Div(
+                        [
+                            html.Label("Date Range", className="label"),
+                            dcc.DatePickerRange(
+                                id="date-range", start_date=min_date, end_date=max_date, className="daterange"
+                            ),
+                        ],
+                        className="control",
+                    ),
+                ],
+                className="controls sticky",
+            ),
+
+            # KPI cards
+            html.Section(id="kpi-cards", className="kpi-grid"),
+
+            # Charts
+            html.Section(
+                [
+                    html.Div([dcc.Graph(id="sales-line")], className="card"),
+                    html.Div([dcc.Graph(id="sales-bar")], className="card"),
+                ],
+                className="charts-grid",
+            ),
+
+            # Table
+            html.Section(
+                [
+                    html.Div(
+                        [
+                            html.Div(
+                                [html.H3("Latest Top Categories by Sales", className="section-title")],
+                                className="section-head"
+                            ),
+                            html.Div(id="top-table", className="table-wrap"),
+                        ],
+                        className="card",
+                    )
+                ],
+                className="section",
+            ),
+
+            # Footer
+            html.Footer(
+                [
+                    html.Span("© 2025 AU Sales • Minimal UI"),
+                ],
+                className="app-footer",
+            ),
         ],
-        style={"padding": "1rem 1.5rem", "fontFamily": "system-ui, Segoe UI, Roboto"},
+        className="shell",
     )
